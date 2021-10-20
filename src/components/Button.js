@@ -14,15 +14,15 @@ import ColourContext from "../contexts/ColourContext";
 // and is called with whatever value is currently inside our pipe
 // value is first argument
 class Button extends React.Component {
-  renderSubmit(value) {
-    return value === 'english' ? 'Submit' : 'Voorleggen'
+  renderSubmit(language) {
+    return language === 'english' ? 'Submit' : 'Voorleggen'
   }
 
   renderButton(colour) {
     return(
       <button className={`ui button ${colour}`}>
         <LanguageContext.Consumer>
-          {(value) => this.renderSubmit(value)}
+          {({ language }) => this.renderSubmit(language)}
         </LanguageContext.Consumer>
       </button>
     )
